@@ -1,25 +1,27 @@
-var ops = document.getElementsByClassName("post op");
-var qls = document.getElementsByClassName("quotelink");
+var posts = document.getElementsByClassName("post");
 var i;
-console.log(ops);
 
-for(i = 0; i < ops.length; i++){
-    var bqs = ops[i].getElementsByTagName("blockquote");
-    for (x in bqs) {
-        bqs[x].innerHTML = "I'm a fag!";
-    }
-}
-
-function qlMO(e) {
-    console.log("BOOF");
-    var msg = new SpeechSynthesisUtterance("Hello Samuel");
+function text_to_speech(myStr) {
+    //sometimes there are HTML elements in a post, this will grab the message after the last
+    //'>' and read that. The problem with this approach is that it will only grab the last
+    //line after a linebreak (ex. <br>) and will not read quoted text that comes
+    //before the last line (ex. >quoting someone <br> "reponse to quote")
+    var sStr = myStr.split('>');
+    var txt = sStr.pop()
+    var msg = new SpeechSynthesisUtterance(txt);
     window.speechSynthesis.speak(msg);
 }
 
-function qlOC(e) {
-}
+for(i = 0; i < posts.length; i++) {
 
-for (ql in qls){
-    qls[ql].addEventListener("mouseover",  qlMO);
-    qls[ql].addEventListener("onclick",  qlOC);
+    (function() {
+        var j = i;
+        var postMsg = posts[j].getElementsByClassName("postMessage");
+        var myStr = postMsg[0].innerHTML
+
+        var but = document.createElement("P");
+        var txt = document.createTextNode("Text to Speech");
+        but.addEventListener("click", myFun=function(){text_to_speech(myStr);});
+        but.appendChild(txt);
+        posts[j].appendChild(but);})();
 }
