@@ -4,7 +4,7 @@
   "permissions": ["activeTab"],
   "content_scripts": [
       {
-          "matches": ["https://*.4chan.org/*"],
+          "matches": ["https://*.4chan.org/*", "https://*.4channel.org/*"],
           "js": ["contentScript.js"]
       }
   ],
