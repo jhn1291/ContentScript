@@ -5,7 +5,7 @@
   "content_scripts": [
       {
           "matches": ["https://*.4chan.org/*", "https://*.4channel.org/*"],
-          "js": ["contentScript.js"]
+          "js": ["contentScript.js", "linkHTML.js"]
       }
   ],
   "manifest_version": 2 }
