@@ -1,6 +1,3 @@
-if(runConfig.expandThread){
-    
-    
 //expand all the threads in 4chan on load
 var expandButtons = document.getElementsByClassName("extButton expbtn");
 var i;
@@ -24,7 +21,6 @@ for(i = 0; i < expandButtons.length; i++) {
         var j = i;
         var expandThread = expandButtons[j];
         expandThread.dispatchEvent(simulateClick(expandThread));;})();
-}
 }
 
 

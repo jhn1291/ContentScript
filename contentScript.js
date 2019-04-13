@@ -1,7 +1,3 @@
-
-if(runConfig.contentScript){
-  
-    
 var posts = document.getElementsByClassName("post");
 var i;
 
@@ -28,6 +24,4 @@ for(i = 0; i < posts.length; i++) {
         but.addEventListener("click", myFun=function(){text_to_speech(myStr);});
         but.appendChild(txt);
         posts[j].appendChild(but);})();
-}
-
 }

@@ -5,7 +5,8 @@
   "content_scripts": [
       {
           "matches": ["https://*.4chan.org/*", "https://*.4channel.org/*"],
-          "js": ["configRun.js", "contentScript.js", "linkHTML.js", "expandThread.js"]
+          "js": ["contentScript.js", "linkHTML.js", "expandImage.js"]
       }
   ],
-  "manifest_version": 2 }
+  "manifest_version": 2 
+}
